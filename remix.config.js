@@ -1,8 +1,3 @@
-import { AppLoadContext } from "@remix-run/node";
-import { PolarisAppProvider } from "@shopify/shopify-app-remix/react";
-import { LATEST_API_VERSION } from "@shopify/shopify-app-remix/server";
-import { restResources } from "@shopify/shopify-api/rest/admin/2024-01";
-
 /**
  * @type {import('@remix-run/dev').AppConfig}
  */
