@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAppBridge } from '@shopify/app-bridge-react';
-import { getSessionToken } from '@shopify/app-bridge-utils';
+import { getSessionToken } from '@shopify/app-bridge-react';
 
 interface ShopifyProduct {
   id: string;
