@@ -9,16 +9,23 @@ import {
 import { restResources } from "@shopify/shopify-api/rest/admin/2024-01";
 import { SQLiteSessionStorage } from "./db.server";
 
+// For development without Shopify authentication
+const isDevelopment = process.env.NODE_ENV !== "production";
+
 const shopify = shopifyApp({
   apiKey: process.env.SHOPIFY_API_KEY,
   apiSecretKey: process.env.SHOPIFY_API_SECRET || "",
   apiVersion: LATEST_API_VERSION,
   scopes: process.env.SCOPES?.split(","),
-  appUrl: process.env.SHOPIFY_APP_URL || "",
+  appUrl: process.env.SHOPIFY_APP_URL || (isDevelopment ? "http://localhost:3000" : ""),
   authPathPrefix: "/auth",
   sessionStorage: new SQLiteSessionStorage(),
   distribution: AppDistribution.AppStore,
   restResources,
+  // Skip authentication in development
+  ...(isDevelopment && {
+    isEmbeddedApp: false,
+  }),
   webhooks: {
     APP_UNINSTALLED: {
       deliveryMethod: DeliveryMethod.Http,
