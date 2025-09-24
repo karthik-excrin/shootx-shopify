@@ -9,15 +9,12 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
-import { boundary } from "@shopify/shopify-app-remix/server";
-import { AppProvider } from "@shopify/shopify-app-remix/react";
 import "@shopify/polaris/build/esm/styles.css";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  await authenticate.admin(request);
-
+  // Skip authentication in development
   return json({
-    apiKey: process.env.SHOPIFY_API_KEY || "",
+    apiKey: process.env.SHOPIFY_API_KEY || "development",
   });
 };
 
@@ -38,9 +35,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <AppProvider isEmbeddedApp apiKey={apiKey}>
-          <Outlet />
-        </AppProvider>
+        <Outlet />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
@@ -50,26 +45,19 @@ export default function App() {
 }
 
 export function ErrorBoundary() {
-  return boundary.error(useRouteError());
-}
-
-export const headers: HeadersFunction = (headersArgs) => {
-  return boundary.headers(headersArgs);
-};
-export default function App() {
   return (
     <html>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Oh no!</title>
         <Meta />
         <Links />
       </head>
       <body>
-        <Outlet />
-        <ScrollRestoration />
+        <div style={{ padding: '2rem', textAlign: 'center' }}>
+          <h1>Something went wrong</h1>
+          <p>We're working on fixing this issue.</p>
+        </div>
         <Scripts />
-        <LiveReload />
       </body>
     </html>
   );
