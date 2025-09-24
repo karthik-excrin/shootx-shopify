@@ -11,7 +11,7 @@ import {
   BlockStack,
   Grid
 } from '@shopify/polaris';
-import { SearchIcon } from '@shopify/polaris-icons';
+import { SearchMinor } from '@shopify/polaris-icons';
 import { ProductCard } from './ProductCard';
 import { products } from '../data/products';
 import { Product, ProductVariant } from '../types';
@@ -44,7 +44,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ addToCart, onTry
               value={searchQuery}
               onChange={setSearchQuery}
               placeholder="Search products..."
-              prefix={<SearchIcon />}
+              prefix={<SearchMinor />}
               autoComplete="off"
               label=""
             />
@@ -96,7 +96,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ addToCart, onTry
                 borderRadius="full" 
                 padding="400"
               >
-                <SearchIcon />
+                <SearchMinor />
               </Box>
               <BlockStack gap="200" align="center">
                 <Text as="h3" variant="headingMd">
