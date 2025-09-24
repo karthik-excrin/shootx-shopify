@@ -1,19 +1,15 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { vitePlugin as remix } from "@remix-run/dev";
+import { defineConfig } from "vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  define: {
-    global: 'globalThis',
-  },
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
+  plugins: [
+    remix({
+      ignoredRouteFiles: ["**/.*"],
+    }),
+    tsconfigPaths(),
+  ],
   server: {
     port: 3000,
-    hmr: {
-      port: 3000,
-    },
   },
 });
