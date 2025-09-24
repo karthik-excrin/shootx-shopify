@@ -13,6 +13,7 @@ import {
   Divider
 } from '@shopify/polaris';
 import { ExpandIcon, CollapseIcon, SearchMinor, ArrowDownIcon, XSmallIcon } from '@shopify/polaris-icons';
+import { ExpandIcon, CollapseIcon, SearchMinor, ArrowDownMinor, XSmallIcon } from '@shopify/polaris-icons';
 import { Product, ProductVariant, TryOnResult } from '../types';
 import { POSE_OPTIONS } from '../utils/constants';
 import { MockAPIService, handleAPIError } from '../services/api';
@@ -276,7 +277,7 @@ export const TryOnWidget: React.FC<TryOnWidgetProps> = ({
                           className="p-1.5 text-white hover:bg-gray-700 rounded-lg transition-colors"
                           title="Download result"
                         >
-                          <ArrowDownIcon />
+                          <ArrowDownMinor />
                         </button>
                         <button
                           onClick={toggleZoom}
