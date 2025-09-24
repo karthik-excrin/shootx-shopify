@@ -8,10 +8,15 @@ import { Dashboard } from './components/Dashboard';
 import { ProductManager } from './components/ProductManager';
 import { ProductCatalog } from './components/ProductCatalog';
 import { TryOnStudio } from './components/TryOnStudio';
+import { TryOnWidget } from './components/TryOnWidget';
 import { UserProfile } from './components/UserProfile';
 import { Product, ProductVariant, CartItem, User, TryOnResult } from './types';
 
 function App() {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
+  const [isTryOnWidgetOpen, setIsTryOnWidgetOpen] = useState(false);
+  
   const [user, setUser] = useState<User>({
     name: 'Sarah Johnson',
     email: 'sarah@example.com',
@@ -33,8 +38,14 @@ function App() {
   };
 
   const onTryOn = (product: Product, variant: ProductVariant) => {
-    console.log('Starting try-on for:', product, variant);
-    // TODO: Navigate to try-on studio or open widget
+    setSelectedProduct(product);
+    setSelectedVariant(variant);
+    setIsTryOnWidgetOpen(true);
+  };
+
+  const handleProductChange = (product: Product, variant: ProductVariant) => {
+    setSelectedProduct(product);
+    setSelectedVariant(variant);
   };
 
   return (
@@ -46,7 +57,7 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/products" element={<ProductManager />} />
               <Route 
-                path="/catalog" 
+                path="/catalog"
                 element={<ProductCatalog addToCart={addToCart} onTryOn={onTryOn} />} 
               />
               <Route 
@@ -56,6 +67,16 @@ function App() {
               <Route path="/customers" element={<UserProfile user={user} />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
+            
+            {/* Try-On Widget */}
+            <TryOnWidget
+              isOpen={isTryOnWidgetOpen}
+              onClose={() => setIsTryOnWidgetOpen(false)}
+              selectedProduct={selectedProduct}
+              selectedVariant={selectedVariant}
+              onProductChange={handleProductChange}
+              addToCart={addToCart}
+            />
           </ShopifyAppLayout>
         </Router>
       </AppBridgeProvider>

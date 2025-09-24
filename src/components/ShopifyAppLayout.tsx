@@ -32,9 +32,9 @@ export const ShopifyAppLayout: React.FC<ShopifyAppLayoutProps> = ({ children }) 
           {
             label: 'Product Catalog',
             icon: ProductsMajor,
-            url: '/products',
-            selected: location.pathname === '/products',
-            onClick: () => navigate('/products'),
+            url: '/catalog',
+            selected: location.pathname === '/catalog',
+            onClick: () => navigate('/catalog'),
           },
           {
             label: 'Customer Insights',
