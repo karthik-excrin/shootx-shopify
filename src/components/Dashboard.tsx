@@ -19,7 +19,6 @@ export const Dashboard: React.FC = () => {
 
   const tryOnStats = {
     totalTryOns: 1247,
-    conversionRate: 23.5,
     avgFitScore: 87,
     topProduct: 'Elegant Floral Midi Dress'
   };
