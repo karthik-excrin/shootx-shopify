@@ -5,7 +5,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "shopify app dev",
+    "dev": "remix dev",
     "config:link": "shopify app config link",
     "generate": "shopify app generate",
     "deploy": "shopify app deploy",
