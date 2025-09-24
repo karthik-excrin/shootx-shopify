@@ -136,6 +136,7 @@ export const Dashboard: React.FC = () => {
               </Box>
             </Card>
           </BlockStack>
+        </Layout.Section>
         </Layout>
       </Layout>
     </Page>
