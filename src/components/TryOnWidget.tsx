@@ -12,7 +12,6 @@ import {
   BlockStack,
   Divider
 } from '@shopify/polaris';
-import { ExpandIcon, CollapseIcon, SearchMinor, ArrowDownIcon, XSmallIcon } from '@shopify/polaris-icons';
 import { ExpandIcon, CollapseIcon, SearchMinor, ArrowDownMinor, XSmallIcon } from '@shopify/polaris-icons';
 import { Product, ProductVariant, TryOnResult } from '../types';
 import { POSE_OPTIONS } from '../utils/constants';
