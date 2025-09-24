@@ -12,10 +12,19 @@ import {
   InlineStack,
   BlockStack
 } from '@shopify/polaris';
-import { useShopifyData } from '../hooks/useShopifyData';
 
 export const Dashboard: React.FC = () => {
-  const { products, customers, loading } = useShopifyData();
+  // Mock data for standalone preview
+  const products = [
+    { id: '1', title: 'Elegant Floral Midi Dress', handle: 'elegant-floral-midi-dress' },
+    { id: '2', title: 'Classic White Button-Up Shirt', handle: 'classic-white-button-up' },
+    { id: '3', title: 'High-Waisted Denim Jeans', handle: 'high-waisted-denim-jeans' }
+  ];
+  const customers = [
+    { id: '1', email: 'customer1@example.com', first_name: 'Sarah', last_name: 'Johnson' },
+    { id: '2', email: 'customer2@example.com', first_name: 'Mike', last_name: 'Chen' }
+  ];
+  const loading = false;
 
   const tryOnStats = {
     totalTryOns: 1247,
