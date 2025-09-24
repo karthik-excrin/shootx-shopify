@@ -1,5 +1,3 @@
-import type { LoaderFunctionArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -8,12 +6,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-
-export const loader = async ({ request }: LoaderFunctionArgs) => {
-  return json({
-    message: "ShootX AI Fashion Try-On App"
-  });
-};
 
 export default function App() {
   return (
