@@ -136,7 +136,6 @@ export const Dashboard: React.FC = () => {
           </BlockStack>
         </Layout.Section>
         </Layout>
-      </Layout>
     </Page>
   );
 };
