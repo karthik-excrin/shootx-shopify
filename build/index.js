@@ -11,45 +11,12 @@ __export(entry_server_exports, {
 });
 import { RemixServer } from "@remix-run/react";
 import { renderToString } from "react-dom/server";
-
-// app/shopify.server.ts
-import { LATEST_API_VERSION } from "@shopify/shopify-api";
-import { shopifyApp } from "@shopify/shopify-app-remix/server";
-import { PrismaSessionStorage } from "@shopify/shopify-app-session-storage-prisma";
-import { restResources } from "@shopify/shopify-api/rest/admin/2024-01";
-
-// app/db.server.ts
-import { PrismaClient } from "@prisma/client";
-var prisma;
-global.__db__ || (global.__db__ = new PrismaClient()), prisma = global.__db__, prisma.$connect();
-var db_server_default = prisma;
-
-// app/shopify.server.ts
-var shopify = shopifyApp({
-  apiKey: process.env.SHOPIFY_API_KEY || "development-key",
-  apiSecretKey: process.env.SHOPIFY_API_SECRET || "",
-  apiVersion: LATEST_API_VERSION,
-  scopes: process.env.SCOPES?.split(","),
-  appUrl: process.env.SHOPIFY_APP_URL || process.env.HOST,
-  authPathPrefix: "/auth",
-  sessionStorage: new PrismaSessionStorage(db_server_default),
-  distribution: "app",
-  restResources,
-  future: {
-    unstable_newEmbeddedAuthStrategy: !0
-  },
-  ...process.env.SHOP_CUSTOM_DOMAIN ? { customShopDomains: [process.env.SHOP_CUSTOM_DOMAIN] } : {}
-});
-var addDocumentResponseHeaders = shopify.addDocumentResponseHeaders, authenticate = shopify.authenticate, unauthenticated = shopify.unauthenticated, login = shopify.login, registerWebhooks = shopify.registerWebhooks, sessionStorage = shopify.sessionStorage;
-
-// app/entry.server.tsx
 import { jsxDEV } from "react/jsx-dev-runtime";
 function handleRequest(request, responseStatusCode, responseHeaders, remixContext) {
-  addDocumentResponseHeaders(request, responseHeaders);
   let markup = renderToString(
     /* @__PURE__ */ jsxDEV(RemixServer, { context: remixContext, url: request.url }, void 0, !1, {
       fileName: "app/entry.server.tsx",
-      lineNumber: 14,
+      lineNumber: 12,
       columnNumber: 5
     }, this)
   );
@@ -466,6 +433,7 @@ var index_exports = {};
 __export(index_exports, {
   default: () => Index
 });
+import { Link as Link2 } from "@remix-run/react";
 import { jsxDEV as jsxDEV4 } from "react/jsx-dev-runtime";
 function Index() {
   return /* @__PURE__ */ jsxDEV4("div", { style: {
@@ -480,51 +448,243 @@ function Index() {
     borderRadius: "20px",
     padding: "3rem",
     boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
-  }, children: /* @__PURE__ */ jsxDEV4("div", { style: { textAlign: "center", marginBottom: "3rem" }, children: [
+  }, children: [
+    /* @__PURE__ */ jsxDEV4("div", { style: { textAlign: "center", marginBottom: "3rem" }, children: [
+      /* @__PURE__ */ jsxDEV4("div", { style: {
+        fontSize: "3rem",
+        fontWeight: "bold",
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        marginBottom: "1rem"
+      }, children: "\u{1F3AF} ShootX" }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 21,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV4("h1", { style: {
+        fontSize: "2.5rem",
+        color: "#333",
+        marginBottom: "1rem",
+        fontWeight: "600"
+      }, children: "AI Fashion Try-On for Shopify" }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 31,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV4("p", { style: {
+        color: "#666",
+        fontSize: "1.2rem",
+        maxWidth: "600px",
+        margin: "0 auto",
+        lineHeight: "1.6"
+      }, children: "Revolutionary ComfyUI-powered virtual try-on technology running on RunPod. Upload your photo, select any dress, and see instant AI-generated results." }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 39,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/routes/_index.tsx",
+      lineNumber: 20,
+      columnNumber: 9
+    }, this),
     /* @__PURE__ */ jsxDEV4("div", { style: {
-      fontSize: "3rem",
-      fontWeight: "bold",
-      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      marginBottom: "1rem"
-    }, children: "\u{1F3AF} ShootX" }, void 0, !1, {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+      gap: "2rem",
+      marginTop: "3rem"
+    }, children: [
+      /* @__PURE__ */ jsxDEV4(Link2, { to: "/try-on", style: { textDecoration: "none" }, children: /* @__PURE__ */ jsxDEV4(
+        "div",
+        {
+          style: {
+            background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+            padding: "2rem",
+            borderRadius: "15px",
+            color: "white",
+            textAlign: "center",
+            transition: "transform 0.2s",
+            cursor: "pointer"
+          },
+          onMouseOver: (e) => e.currentTarget.style.transform = "translateY(-5px)",
+          onMouseOut: (e) => e.currentTarget.style.transform = "translateY(0)",
+          children: [
+            /* @__PURE__ */ jsxDEV4("div", { style: { fontSize: "3rem", marginBottom: "1rem" }, children: "\u{1F3AF}" }, void 0, !1, {
+              fileName: "app/routes/_index.tsx",
+              lineNumber: 71,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV4("h3", { style: { margin: "0 0 1rem 0", fontSize: "1.5rem" }, children: "AI Try-On Studio" }, void 0, !1, {
+              fileName: "app/routes/_index.tsx",
+              lineNumber: 72,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV4("p", { style: { margin: 0, opacity: 0.9 }, children: "Upload your photo and try on dresses with AI" }, void 0, !1, {
+              fileName: "app/routes/_index.tsx",
+              lineNumber: 73,
+              columnNumber: 15
+            }, this)
+          ]
+        },
+        void 0,
+        !0,
+        {
+          fileName: "app/routes/_index.tsx",
+          lineNumber: 59,
+          columnNumber: 13
+        },
+        this
+      ) }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 58,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV4(Link2, { to: "/products", style: { textDecoration: "none" }, children: /* @__PURE__ */ jsxDEV4(
+        "div",
+        {
+          style: {
+            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            padding: "2rem",
+            borderRadius: "15px",
+            color: "white",
+            textAlign: "center",
+            transition: "transform 0.2s",
+            cursor: "pointer"
+          },
+          onMouseOver: (e) => e.currentTarget.style.transform = "translateY(-5px)",
+          onMouseOut: (e) => e.currentTarget.style.transform = "translateY(0)",
+          children: [
+            /* @__PURE__ */ jsxDEV4("div", { style: { fontSize: "3rem", marginBottom: "1rem" }, children: "\u{1F4E6}" }, void 0, !1, {
+              fileName: "app/routes/_index.tsx",
+              lineNumber: 92,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV4("h3", { style: { margin: "0 0 1rem 0", fontSize: "1.5rem" }, children: "Product Management" }, void 0, !1, {
+              fileName: "app/routes/_index.tsx",
+              lineNumber: 93,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV4("p", { style: { margin: 0, opacity: 0.9 }, children: "Configure products for AI try-on functionality" }, void 0, !1, {
+              fileName: "app/routes/_index.tsx",
+              lineNumber: 94,
+              columnNumber: 15
+            }, this)
+          ]
+        },
+        void 0,
+        !0,
+        {
+          fileName: "app/routes/_index.tsx",
+          lineNumber: 80,
+          columnNumber: 13
+        },
+        this
+      ) }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 79,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, !0, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 19,
-      columnNumber: 11
+      lineNumber: 52,
+      columnNumber: 9
     }, this),
-    /* @__PURE__ */ jsxDEV4("h1", { style: {
-      fontSize: "2.5rem",
-      color: "#333",
-      marginBottom: "1rem",
-      fontWeight: "600"
-    }, children: "AI Fashion Try-On for Shopify" }, void 0, !1, {
+    /* @__PURE__ */ jsxDEV4("div", { style: {
+      marginTop: "4rem",
+      padding: "2rem",
+      background: "#f8f9ff",
+      borderRadius: "15px"
+    }, children: [
+      /* @__PURE__ */ jsxDEV4("h2", { style: { textAlign: "center", marginBottom: "2rem", color: "#333" }, children: "\u{1F680} Powered by Advanced AI" }, void 0, !1, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 108,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV4("div", { style: {
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+        gap: "2rem"
+      }, children: [
+        /* @__PURE__ */ jsxDEV4("div", { style: { textAlign: "center" }, children: [
+          /* @__PURE__ */ jsxDEV4("div", { style: { fontSize: "2rem", marginBottom: "1rem" }, children: "\u{1F9E0}" }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 117,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV4("h4", { style: { color: "#667eea", margin: "0 0 0.5rem 0" }, children: "ComfyUI Workflows" }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 118,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV4("p", { style: { margin: 0, color: "#666", fontSize: "0.9rem" }, children: "Advanced AI workflows for realistic try-on results" }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 119,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, !0, {
+          fileName: "app/routes/_index.tsx",
+          lineNumber: 116,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV4("div", { style: { textAlign: "center" }, children: [
+          /* @__PURE__ */ jsxDEV4("div", { style: { fontSize: "2rem", marginBottom: "1rem" }, children: "\u26A1" }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 124,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV4("h4", { style: { color: "#667eea", margin: "0 0 0.5rem 0" }, children: "RunPod Processing" }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 125,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV4("p", { style: { margin: 0, color: "#666", fontSize: "0.9rem" }, children: "GPU-powered processing for fast results" }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 126,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, !0, {
+          fileName: "app/routes/_index.tsx",
+          lineNumber: 123,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV4("div", { style: { textAlign: "center" }, children: [
+          /* @__PURE__ */ jsxDEV4("div", { style: { fontSize: "2rem", marginBottom: "1rem" }, children: "\u{1F6CD}\uFE0F" }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 131,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV4("h4", { style: { color: "#667eea", margin: "0 0 0.5rem 0" }, children: "Shopify Integration" }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 132,
+            columnNumber: 15
+          }, this),
+          /* @__PURE__ */ jsxDEV4("p", { style: { margin: 0, color: "#666", fontSize: "0.9rem" }, children: "Seamless integration with your Shopify store" }, void 0, !1, {
+            fileName: "app/routes/_index.tsx",
+            lineNumber: 133,
+            columnNumber: 15
+          }, this)
+        ] }, void 0, !0, {
+          fileName: "app/routes/_index.tsx",
+          lineNumber: 130,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, !0, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 111,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, !0, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 29,
-      columnNumber: 11
-    }, this),
-    /* @__PURE__ */ jsxDEV4("p", { style: {
-      color: "#666",
-      fontSize: "1.2rem",
-      maxWidth: "600px",
-      margin: "0 auto",
-      lineHeight: "1.6"
-    }, children: "Revolutionary ComfyUI-powered virtual try-on technology running on RunPod. Upload your photo, select any dress, and see instant AI-generated results." }, void 0, !1, {
-      fileName: "app/routes/_index.tsx",
-      lineNumber: 37,
-      columnNumber: 11
+      lineNumber: 102,
+      columnNumber: 9
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 18,
-    columnNumber: 9
-  }, this) }, void 0, !1, {
-    fileName: "app/routes/_index.tsx",
-    lineNumber: 9,
+    lineNumber: 11,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 3,
+    lineNumber: 5,
     columnNumber: 5
   }, this);
 }
@@ -535,7 +695,7 @@ __export(try_on_exports, {
   default: () => TryOnStudio
 });
 import { useState, useRef } from "react";
-import { Link as Link2 } from "@remix-run/react";
+import { Link as Link3 } from "@remix-run/react";
 import { jsxDEV as jsxDEV5 } from "react/jsx-dev-runtime";
 function TryOnStudio() {
   let [selectedProduct, setSelectedProduct] = useState(""), [modelImage, setModelImage] = useState(null), [modelImagePreview, setModelImagePreview] = useState(""), [isProcessing, setIsProcessing] = useState(!1), [jobId, setJobId] = useState(""), fileInputRef = useRef(null), products = [
@@ -569,7 +729,7 @@ function TryOnStudio() {
     boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
   }, children: [
     /* @__PURE__ */ jsxDEV5("div", { style: { textAlign: "center", marginBottom: "2rem" }, children: [
-      /* @__PURE__ */ jsxDEV5(Link2, { to: "/", style: {
+      /* @__PURE__ */ jsxDEV5(Link3, { to: "/", style: {
         color: "#f5576c",
         textDecoration: "none",
         fontSize: "1rem",
@@ -883,7 +1043,7 @@ function TryOnStudio() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-5VBXVX25.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-PNYCQMQ2.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-U5E2PCIK.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-Z33J7CXM.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !0 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-Y4V3SZ4L.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/products": { id: "routes/products", parentId: "root", path: "products", index: void 0, caseSensitive: void 0, module: "/build/routes/products-X7XMHIEX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/try-on": { id: "routes/try-on", parentId: "root", path: "try-on", index: void 0, caseSensitive: void 0, module: "/build/routes/try-on-6XAGRLGX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "e010ce66", hmr: { runtime: "/build/_shared/chunk-U5E2PCIK.js", timestamp: 1758737527243 }, url: "/build/manifest-E010CE66.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-5VBXVX25.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-PNYCQMQ2.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-U5E2PCIK.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-LUJVB37Y.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !0 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-U57EGFO3.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/products": { id: "routes/products", parentId: "root", path: "products", index: void 0, caseSensitive: void 0, module: "/build/routes/products-X7XMHIEX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/try-on": { id: "routes/try-on", parentId: "root", path: "try-on", index: void 0, caseSensitive: void 0, module: "/build/routes/try-on-6XAGRLGX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "580301f7", hmr: { runtime: "/build/_shared/chunk-U5E2PCIK.js", timestamp: 1758737659883 }, url: "/build/manifest-580301F7.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, v3_routeConfig: !1, v3_singleFetch: !1, v3_lazyRouteDiscovery: !1, unstable_optimizeDeps: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
