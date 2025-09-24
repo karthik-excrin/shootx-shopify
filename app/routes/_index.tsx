@@ -45,3 +45,7 @@ export default function Index() {
             Upload your photo, select any dress, and see instant AI-generated results.
           </p>
         </div>
+      </div>
+    </div>
+  );
+}
