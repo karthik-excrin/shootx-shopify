@@ -1,13 +1,11 @@
 {
   "name": "ai-fashion-tryon-shopify-app",
   "private": true,
-  "type": "module",
   "version": "1.0.0",
   "sideEffects": false,
   "scripts": {
-    "dev": "remix dev --manual",
-    "dev": "remix dev --manual",
-    "shopify:dev": "npx shopify app dev",
+    "build": "remix build",
+    "dev": "shopify app dev",
     "config:link": "shopify app config link",
     "generate": "shopify app generate",
     "deploy": "shopify app deploy",
@@ -17,7 +15,7 @@
     "docker-start": "npm run setup && npm run start",
     "setup": "prisma generate && prisma migrate deploy",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "shopify": "npx shopify",
+    "shopify": "shopify",
     "prisma": "prisma",
     "graphql-codegen": "graphql-codegen",
     "vite": "vite"
@@ -36,19 +34,21 @@
     "isbot": "^5.1.0",
     "luxon": "^3.7.2",
     "prisma": "^6.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "vite-tsconfig-paths": "^5.0.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite-tsconfig-paths": "^5.0.1",
+    "lucide-react": "^0.344.0",
+    "@shopify/polaris-icons": "^7.0.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.7.1",
-    "@types/luxon": "^3.4.2",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@types/luxon": "^3.4.2",
     "eslint": "^8.42.0",
     "typescript": "^5.5.3",
-    "vite": "^5.4.2"
+    "vite": "^5.4.2",
+    "@vitejs/plugin-react": "^4.3.1"
   },
   "workspaces": [
     "extensions/*"
