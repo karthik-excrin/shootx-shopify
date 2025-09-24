@@ -6,7 +6,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev --port 3000",
+    "dev": "shopify app dev",
     "shopify:dev": "npx shopify app dev",
     "config:link": "shopify app config link",
     "generate": "shopify app generate",
