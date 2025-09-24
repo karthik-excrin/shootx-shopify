@@ -11,24 +11,24 @@ export const AppBridgeProvider: React.FC<AppBridgeProviderProps> = ({ children }
     const host = new URLSearchParams(location.search).get('host');
     const apiKey = import.meta.env.VITE_SHOPIFY_API_KEY;
     
-    // If we have an API key, always create a config (mock for development if no host)
-    if (apiKey) {
+    // Only create config if we have both API key and a real host from Shopify
+    if (apiKey && host) {
       return {
-        host: host || 'mock-host',
+        host,
         apiKey,
         forceRedirect: false,
       };
     }
 
-    // No API key means standalone mode
+    // No API key or no host means standalone mode
     return null;
   }, []);
 
-  // If no config (no API key), run in standalone mode
+  // If no config (no API key or no host), run in standalone mode
   if (!config) {
     return <>{children}</>;
   }
 
-  // Always use Provider when we have a config
+  // Use Provider only when we have valid config with real host
   return <Provider config={config}>{children}</Provider>;
 };
