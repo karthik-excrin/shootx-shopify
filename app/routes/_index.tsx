@@ -1,8 +1,7 @@
 import { json } from "@remix-run/node";
-import { useLoaderData, Link } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 
 export const loader = async () => {
-  // Simple loader for WebContainer environment
   return json({
     message: "ShootX AI Fashion Try-On App",
     environment: "development"
@@ -106,68 +105,19 @@ export default function Index() {
           </div>
         </div>
 
-        {/* Navigation Buttons */}
-        <div style={{ 
-          display: 'flex', 
-          gap: '1rem', 
-          justifyContent: 'center',
-          flexWrap: 'wrap'
-        }}>
-          <Link 
-            to="/app/try-on"
-            style={{
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              color: 'white',
-              padding: '1rem 2rem',
-              borderRadius: '50px',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              fontWeight: 'bold',
-              boxShadow: '0 10px 20px rgba(102, 126, 234, 0.3)',
-              transition: 'transform 0.2s'
-            }}
-            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-          >
-            🚀 Try-On Studio
-          </Link>
-          
-          <Link 
-            to="/app/products"
-            style={{
-              background: 'white',
-              color: '#667eea',
-              border: '2px solid #667eea',
-              padding: '1rem 2rem',
-              borderRadius: '50px',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              fontWeight: 'bold',
-              transition: 'all 0.2s'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.background = '#667eea';
-              e.currentTarget.style.color = 'white';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.background = 'white';
-              e.currentTarget.style.color = '#667eea';
-            }}
-          >
-            📦 Manage Products
-          </Link>
-        </div>
-
-        {/* Technical Info */}
+        {/* Demo Status */}
         <div style={{
-          marginTop: '3rem',
           padding: '2rem',
           background: '#f8f9fa',
-          borderRadius: '15px'
+          borderRadius: '15px',
+          textAlign: 'center'
         }}>
-          <h3 style={{ color: '#333', marginBottom: '1rem', textAlign: 'center' }}>
-            🔧 Ready for RunPod Integration
+          <h3 style={{ color: '#333', marginBottom: '1rem' }}>
+            🔧 Development Preview
           </h3>
+          <p style={{ color: '#666', marginBottom: '1rem' }}>
+            This is a development preview of the ShootX AI Fashion Try-On Shopify app.
+          </p>
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
@@ -182,10 +132,10 @@ export default function Index() {
               <strong>✅ Image Processing:</strong> Automatic product image fetching
             </div>
             <div>
-              <strong>✅ API Routes:</strong> Ready for RunPod endpoint integration
+              <strong>✅ RunPod Integration:</strong> Ready for API endpoint configuration
             </div>
             <div>
-              <strong>✅ Database:</strong> Job tracking and result storage
+              <strong>✅ ShootX Branding:</strong> Custom workflow with branding support
             </div>
           </div>
         </div>

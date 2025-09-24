@@ -2,18 +2,17 @@ import {
   require_node
 } from "/build/_shared/chunk-G7CHZRZX.js";
 import {
+  useLoaderData
+} from "/build/_shared/chunk-PNYCQMQ2.js";
+import "/build/_shared/chunk-U4FRFQSK.js";
+import {
   require_jsx_dev_runtime
 } from "/build/_shared/chunk-XGOTYLZ5.js";
-import {
-  Link,
-  useLoaderData
-} from "/build/_shared/chunk-ODW4SEMK.js";
+import "/build/_shared/chunk-7M6SC7J5.js";
 import {
   createHotContext
 } from "/build/_shared/chunk-U5E2PCIK.js";
 import "/build/_shared/chunk-UWV35TSL.js";
-import "/build/_shared/chunk-U4FRFQSK.js";
-import "/build/_shared/chunk-7M6SC7J5.js";
 import {
   __toESM
 } from "/build/_shared/chunk-PNG5AS42.js";
@@ -39,7 +38,7 @@ if (import.meta) {
     //@ts-expect-error
     "app/routes/_index.tsx"
   );
-  import.meta.hot.lastModified = "1758735410142.9998";
+  import.meta.hot.lastModified = "1758735638591";
 }
 function Index() {
   _s();
@@ -72,7 +71,7 @@ function Index() {
         marginBottom: "1rem"
       }, children: "\u{1F3AF} ShootX" }, void 0, false, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 55,
+        lineNumber: 54,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h1", { style: {
@@ -82,7 +81,7 @@ function Index() {
         fontWeight: "600"
       }, children: "AI Fashion Try-On for Shopify" }, void 0, false, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 65,
+        lineNumber: 64,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { style: {
@@ -93,12 +92,12 @@ function Index() {
         lineHeight: "1.6"
       }, children: "Revolutionary ComfyUI-powered virtual try-on technology running on RunPod. Upload your photo, select any dress, and see instant AI-generated results." }, void 0, false, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 73,
+        lineNumber: 72,
         columnNumber: 11
       }, this)
     ] }, void 0, true, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 51,
+      lineNumber: 50,
       columnNumber: 9
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -118,7 +117,7 @@ function Index() {
           marginBottom: "1rem"
         }, children: "\u{1F916}" }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 98,
+          lineNumber: 97,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { style: {
@@ -126,7 +125,7 @@ function Index() {
           marginBottom: "1rem"
         }, children: "ComfyUI Workflow" }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 102,
+          lineNumber: 101,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { style: {
@@ -134,12 +133,12 @@ function Index() {
           lineHeight: "1.6"
         }, children: "Advanced AI processing with ComfyUI workflows optimized for fashion try-on scenarios" }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 106,
+          lineNumber: 105,
           columnNumber: 13
         }, this)
       ] }, void 0, true, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 92,
+        lineNumber: 91,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -153,7 +152,7 @@ function Index() {
           marginBottom: "1rem"
         }, children: "\u26A1" }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 120,
+          lineNumber: 119,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { style: {
@@ -161,7 +160,7 @@ function Index() {
           marginBottom: "1rem"
         }, children: "RunPod Processing" }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 124,
+          lineNumber: 123,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { style: {
@@ -169,12 +168,12 @@ function Index() {
           lineHeight: "1.6"
         }, children: "High-performance GPU processing on RunPod for fast, high-quality results" }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 128,
+          lineNumber: 127,
           columnNumber: 13
         }, this)
       ] }, void 0, true, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 114,
+        lineNumber: 113,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -188,7 +187,7 @@ function Index() {
           marginBottom: "1rem"
         }, children: "\u{1F3A8}" }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 142,
+          lineNumber: 141,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { style: {
@@ -196,7 +195,7 @@ function Index() {
           marginBottom: "1rem"
         }, children: "Auto Dress Fetch" }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 146,
+          lineNumber: 145,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { style: {
@@ -204,79 +203,39 @@ function Index() {
           lineHeight: "1.6"
         }, children: "Automatically fetches dress images from product pages - users only upload their photo" }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 150,
+          lineNumber: 149,
           columnNumber: 13
         }, this)
       ] }, void 0, true, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 136,
+        lineNumber: 135,
         columnNumber: 11
       }, this)
     ] }, void 0, true, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 86,
+      lineNumber: 85,
       columnNumber: 9
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
-      display: "flex",
-      gap: "1rem",
-      justifyContent: "center",
-      flexWrap: "wrap"
-    }, children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Link, { to: "/app/try-on", style: {
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        color: "white",
-        padding: "1rem 2rem",
-        borderRadius: "50px",
-        textDecoration: "none",
-        fontSize: "1.1rem",
-        fontWeight: "bold",
-        boxShadow: "0 10px 20px rgba(102, 126, 234, 0.3)",
-        transition: "transform 0.2s"
-      }, onMouseOver: (e) => e.currentTarget.style.transform = "translateY(-2px)", onMouseOut: (e) => e.currentTarget.style.transform = "translateY(0)", children: "\u{1F680} Try-On Studio" }, void 0, false, {
-        fileName: "app/routes/_index.tsx",
-        lineNumber: 166,
-        columnNumber: 11
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Link, { to: "/app/products", style: {
-        background: "white",
-        color: "#667eea",
-        border: "2px solid #667eea",
-        padding: "1rem 2rem",
-        borderRadius: "50px",
-        textDecoration: "none",
-        fontSize: "1.1rem",
-        fontWeight: "bold",
-        transition: "all 0.2s"
-      }, onMouseOver: (e) => {
-        e.currentTarget.style.background = "#667eea";
-        e.currentTarget.style.color = "white";
-      }, onMouseOut: (e) => {
-        e.currentTarget.style.background = "white";
-        e.currentTarget.style.color = "#667eea";
-      }, children: "\u{1F4E6} Manage Products" }, void 0, false, {
-        fileName: "app/routes/_index.tsx",
-        lineNumber: 180,
-        columnNumber: 11
-      }, this)
-    ] }, void 0, true, {
-      fileName: "app/routes/_index.tsx",
-      lineNumber: 160,
-      columnNumber: 9
-    }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
-      marginTop: "3rem",
       padding: "2rem",
       background: "#f8f9fa",
-      borderRadius: "15px"
+      borderRadius: "15px",
+      textAlign: "center"
     }, children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h3", { style: {
         color: "#333",
-        marginBottom: "1rem",
-        textAlign: "center"
-      }, children: "\u{1F527} Ready for RunPod Integration" }, void 0, false, {
+        marginBottom: "1rem"
+      }, children: "\u{1F527} Development Preview" }, void 0, false, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 208,
+        lineNumber: 165,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { style: {
+        color: "#666",
+        marginBottom: "1rem"
+      }, children: "This is a development preview of the ShootX AI Fashion Try-On Shopify app." }, void 0, false, {
+        fileName: "app/routes/_index.tsx",
+        lineNumber: 171,
         columnNumber: 11
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { style: {
@@ -289,68 +248,68 @@ function Index() {
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("strong", { children: "\u2705 ComfyUI Service:" }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 223,
+            lineNumber: 185,
             columnNumber: 15
           }, this),
           " Pre-configured for workflow submission"
         ] }, void 0, true, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 222,
+          lineNumber: 184,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("strong", { children: "\u2705 Image Processing:" }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 226,
+            lineNumber: 188,
             columnNumber: 15
           }, this),
           " Automatic product image fetching"
         ] }, void 0, true, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 225,
+          lineNumber: 187,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("strong", { children: "\u2705 API Routes:" }, void 0, false, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("strong", { children: "\u2705 RunPod Integration:" }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 229,
+            lineNumber: 191,
             columnNumber: 15
           }, this),
-          " Ready for RunPod endpoint integration"
+          " Ready for API endpoint configuration"
         ] }, void 0, true, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 228,
+          lineNumber: 190,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("strong", { children: "\u2705 Database:" }, void 0, false, {
+          /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("strong", { children: "\u2705 ShootX Branding:" }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 232,
+            lineNumber: 194,
             columnNumber: 15
           }, this),
-          " Job tracking and result storage"
+          " Custom workflow with branding support"
         ] }, void 0, true, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 231,
+          lineNumber: 193,
           columnNumber: 13
         }, this)
       ] }, void 0, true, {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 215,
+        lineNumber: 177,
         columnNumber: 11
       }, this)
     ] }, void 0, true, {
       fileName: "app/routes/_index.tsx",
-      lineNumber: 202,
+      lineNumber: 159,
       columnNumber: 9
     }, this)
   ] }, void 0, true, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 42,
+    lineNumber: 41,
     columnNumber: 7
   }, this) }, void 0, false, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 36,
+    lineNumber: 35,
     columnNumber: 10
   }, this);
 }
@@ -365,4 +324,4 @@ window.$RefreshSig$ = prevRefreshSig;
 export {
   Index as default
 };
-//# sourceMappingURL=/build/routes/_index-INVIVFKG.js.map
+//# sourceMappingURL=/build/routes/_index-6QQ3BDRL.js.map

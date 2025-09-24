@@ -273,147 +273,125 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
-  useLoaderData
+  ScrollRestoration
 } from "@remix-run/react";
 import { jsxDEV as jsxDEV2 } from "react/jsx-dev-runtime";
 var loader = async ({ request }) => json({
-  apiKey: process.env.SHOPIFY_API_KEY || "development"
+  message: "ShootX AI Fashion Try-On App"
 });
 function App() {
-  let { apiKey } = useLoaderData();
   return /* @__PURE__ */ jsxDEV2("html", { children: [
     /* @__PURE__ */ jsxDEV2("head", { children: [
       /* @__PURE__ */ jsxDEV2("meta", { charSet: "utf-8" }, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 27,
+        lineNumber: 22,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2("meta", { name: "viewport", content: "width=device-width,initial-scale=1" }, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 28,
+        lineNumber: 23,
         columnNumber: 9
       }, this),
-      /* @__PURE__ */ jsxDEV2("link", { rel: "preconnect", href: "https://cdn.shopify.com/" }, void 0, !1, {
-        fileName: "app/root.tsx",
-        lineNumber: 29,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ jsxDEV2(
-        "link",
-        {
-          rel: "stylesheet",
-          href: "https://cdn.shopify.com/static/fonts/inter/v4/styles.css"
-        },
-        void 0,
-        !1,
-        {
-          fileName: "app/root.tsx",
-          lineNumber: 30,
-          columnNumber: 9
-        },
-        this
-      ),
       /* @__PURE__ */ jsxDEV2(Meta, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 34,
+        lineNumber: 24,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(Links, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 35,
+        lineNumber: 25,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/root.tsx",
-      lineNumber: 26,
+      lineNumber: 21,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV2("body", { children: [
       /* @__PURE__ */ jsxDEV2(Outlet, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 38,
+        lineNumber: 28,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(ScrollRestoration, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 39,
+        lineNumber: 29,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(Scripts, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 40,
+        lineNumber: 30,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(LiveReload, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 41,
+        lineNumber: 31,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/root.tsx",
-      lineNumber: 37,
+      lineNumber: 27,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/root.tsx",
-    lineNumber: 25,
+    lineNumber: 20,
     columnNumber: 5
   }, this);
 }
 function ErrorBoundary() {
   return /* @__PURE__ */ jsxDEV2("html", { children: [
     /* @__PURE__ */ jsxDEV2("head", { children: [
-      /* @__PURE__ */ jsxDEV2("title", { children: "Oh no!" }, void 0, !1, {
+      /* @__PURE__ */ jsxDEV2("title", { children: "Error" }, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 51,
+        lineNumber: 41,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(Meta, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 52,
+        lineNumber: 42,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(Links, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 53,
+        lineNumber: 43,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/root.tsx",
-      lineNumber: 50,
+      lineNumber: 40,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV2("body", { children: [
       /* @__PURE__ */ jsxDEV2("div", { style: { padding: "2rem", textAlign: "center" }, children: [
         /* @__PURE__ */ jsxDEV2("h1", { children: "Something went wrong" }, void 0, !1, {
           fileName: "app/root.tsx",
-          lineNumber: 57,
+          lineNumber: 47,
           columnNumber: 11
         }, this),
-        /* @__PURE__ */ jsxDEV2("p", { children: "We're working on fixing this issue." }, void 0, !1, {
+        /* @__PURE__ */ jsxDEV2("p", { children: "Please try refreshing the page." }, void 0, !1, {
           fileName: "app/root.tsx",
-          lineNumber: 58,
+          lineNumber: 48,
           columnNumber: 11
         }, this)
       ] }, void 0, !0, {
         fileName: "app/root.tsx",
-        lineNumber: 56,
+        lineNumber: 46,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(Scripts, {}, void 0, !1, {
         fileName: "app/root.tsx",
-        lineNumber: 60,
+        lineNumber: 50,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/root.tsx",
-      lineNumber: 55,
+      lineNumber: 45,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/root.tsx",
-    lineNumber: 49,
+    lineNumber: 39,
     columnNumber: 5
   }, this);
 }
@@ -425,7 +403,7 @@ __export(app_products_exports, {
   loader: () => loader2
 });
 import { json as json2 } from "@remix-run/node";
-import { useLoaderData as useLoaderData2 } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import {
   Page,
   Layout,
@@ -476,7 +454,7 @@ var loader2 = async ({ request }) => {
   });
 };
 function Products() {
-  let { products } = useLoaderData2(), rows = products.map((product) => [
+  let { products } = useLoaderData(), rows = products.map((product) => [
     product.title,
     product.handle,
     product.variants.nodes[0]?.price || "N/A",
@@ -592,7 +570,7 @@ __export(app_try_on_exports, {
   loader: () => loader3
 });
 import { json as json3 } from "@remix-run/node";
-import { useLoaderData as useLoaderData3, useFetcher } from "@remix-run/react";
+import { useLoaderData as useLoaderData2, useFetcher } from "@remix-run/react";
 import { useState, useCallback, useRef } from "react";
 import {
   Page as Page2,
@@ -650,7 +628,7 @@ var loader3 = async ({ request }) => {
   });
 };
 function TryOnStudio() {
-  let { shop, products } = useLoaderData3(), fetcher = useFetcher(), [selectedProduct, setSelectedProduct] = useState(""), [selectedVariant, setSelectedVariant] = useState(""), [modelImage, setModelImage] = useState(null), [modelImagePreview, setModelImagePreview] = useState(""), [isProcessing, setIsProcessing] = useState(!1), [jobId, setJobId] = useState(""), [tryOnResult, setTryOnResult] = useState(""), fileInputRef = useRef(null), variantOptions = products.find((p) => p.id === selectedProduct)?.variants.nodes.map((variant) => ({
+  let { shop, products } = useLoaderData2(), fetcher = useFetcher(), [selectedProduct, setSelectedProduct] = useState(""), [selectedVariant, setSelectedVariant] = useState(""), [modelImage, setModelImage] = useState(null), [modelImagePreview, setModelImagePreview] = useState(""), [isProcessing, setIsProcessing] = useState(!1), [jobId, setJobId] = useState(""), [tryOnResult, setTryOnResult] = useState(""), fileInputRef = useRef(null), variantOptions = products.find((p) => p.id === selectedProduct)?.variants.nodes.map((variant) => ({
     label: variant.title,
     value: variant.id
   })) || [], productOptions = [
@@ -1672,14 +1650,14 @@ __export(index_exports, {
   loader: () => loader5
 });
 import { json as json5 } from "@remix-run/node";
-import { useLoaderData as useLoaderData4, Link as Link2 } from "@remix-run/react";
+import { useLoaderData as useLoaderData3, Link as Link2 } from "@remix-run/react";
 import { jsxDEV as jsxDEV6 } from "react/jsx-dev-runtime";
 var loader5 = async () => json5({
   message: "ShootX AI Fashion Try-On App",
   environment: "development"
 });
 function Index() {
-  let { message } = useLoaderData4();
+  let { message } = useLoaderData3();
   return /* @__PURE__ */ jsxDEV6("div", { style: {
     minHeight: "100vh",
     background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
@@ -2333,7 +2311,7 @@ function TryOnStudio2() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-PLHDMDJB.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-ODW4SEMK.js", "/build/_shared/chunk-U5E2PCIK.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-6XJFF3QM.js", imports: ["/build/_shared/chunk-G7CHZRZX.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !0 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-INVIVFKG.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/api.tryon": { id: "routes/api.tryon", parentId: "root", path: "api/tryon", index: void 0, caseSensitive: void 0, module: "/build/routes/api.tryon-AQPNPWKU.js", imports: void 0, hasAction: !0, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/app.products": { id: "routes/app.products", parentId: "root", path: "app/products", index: void 0, caseSensitive: void 0, module: "/build/routes/app.products-KJO557Y7.js", imports: ["/build/_shared/chunk-LZ6DFBPK.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/app.try-on": { id: "routes/app.try-on", parentId: "root", path: "app/try-on", index: void 0, caseSensitive: void 0, module: "/build/routes/app.try-on-JWVBUQYH.js", imports: ["/build/_shared/chunk-LZ6DFBPK.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/products": { id: "routes/products", parentId: "root", path: "products", index: void 0, caseSensitive: void 0, module: "/build/routes/products-SXXYLPOH.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/try-on": { id: "routes/try-on", parentId: "root", path: "try-on", index: void 0, caseSensitive: void 0, module: "/build/routes/try-on-TVMCYXKN.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/webhooks": { id: "routes/webhooks", parentId: "root", path: "webhooks", index: void 0, caseSensitive: void 0, module: "/build/routes/webhooks-YCEDH7MD.js", imports: void 0, hasAction: !0, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "95f0324f", hmr: { runtime: "/build/_shared/chunk-U5E2PCIK.js", timestamp: 1758735488576 }, url: "/build/manifest-95F0324F.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-PLHDMDJB.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-ODW4SEMK.js", "/build/_shared/chunk-U5E2PCIK.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-IGXN4ZU4.js", imports: ["/build/_shared/chunk-G7CHZRZX.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !0 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-INVIVFKG.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/api.tryon": { id: "routes/api.tryon", parentId: "root", path: "api/tryon", index: void 0, caseSensitive: void 0, module: "/build/routes/api.tryon-AQPNPWKU.js", imports: void 0, hasAction: !0, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/app.products": { id: "routes/app.products", parentId: "root", path: "app/products", index: void 0, caseSensitive: void 0, module: "/build/routes/app.products-KJO557Y7.js", imports: ["/build/_shared/chunk-LZ6DFBPK.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/app.try-on": { id: "routes/app.try-on", parentId: "root", path: "app/try-on", index: void 0, caseSensitive: void 0, module: "/build/routes/app.try-on-JWVBUQYH.js", imports: ["/build/_shared/chunk-LZ6DFBPK.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/products": { id: "routes/products", parentId: "root", path: "products", index: void 0, caseSensitive: void 0, module: "/build/routes/products-SXXYLPOH.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/try-on": { id: "routes/try-on", parentId: "root", path: "try-on", index: void 0, caseSensitive: void 0, module: "/build/routes/try-on-TVMCYXKN.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/webhooks": { id: "routes/webhooks", parentId: "root", path: "webhooks", index: void 0, caseSensitive: void 0, module: "/build/routes/webhooks-YCEDH7MD.js", imports: void 0, hasAction: !0, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "2cb4eaed", hmr: { runtime: "/build/_shared/chunk-U5E2PCIK.js", timestamp: 1758735626017 }, url: "/build/manifest-2CB4EAED.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, v3_routeConfig: !1, v3_singleFetch: !1, v3_lazyRouteDiscovery: !1, unstable_optimizeDeps: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

@@ -2,23 +2,22 @@ import {
   require_node
 } from "/build/_shared/chunk-G7CHZRZX.js";
 import {
-  require_jsx_dev_runtime
-} from "/build/_shared/chunk-XGOTYLZ5.js";
-import {
   Links,
   LiveReload,
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
-  useLoaderData
-} from "/build/_shared/chunk-ODW4SEMK.js";
+  ScrollRestoration
+} from "/build/_shared/chunk-PNYCQMQ2.js";
+import "/build/_shared/chunk-U4FRFQSK.js";
+import {
+  require_jsx_dev_runtime
+} from "/build/_shared/chunk-XGOTYLZ5.js";
+import "/build/_shared/chunk-7M6SC7J5.js";
 import {
   createHotContext
 } from "/build/_shared/chunk-U5E2PCIK.js";
 import "/build/_shared/chunk-UWV35TSL.js";
-import "/build/_shared/chunk-U4FRFQSK.js";
-import "/build/_shared/chunk-7M6SC7J5.js";
 import {
   __toESM
 } from "/build/_shared/chunk-PNG5AS42.js";
@@ -38,112 +37,95 @@ if (!window.$RefreshReg$ || !window.$RefreshSig$ || !window.$RefreshRuntime$) {
 }
 var prevRefreshReg;
 var prevRefreshSig;
-var _s = $RefreshSig$();
 if (import.meta) {
   import.meta.hot = createHotContext(
     //@ts-expect-error
     "app/root.tsx"
   );
+  import.meta.hot.lastModified = "1758735618137";
 }
 function App() {
-  _s();
-  const {
-    apiKey
-  } = useLoaderData();
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("html", { children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("head", { children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("meta", { charSet: "utf-8" }, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 39,
+        lineNumber: 33,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("meta", { name: "viewport", content: "width=device-width,initial-scale=1" }, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 40,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("link", { rel: "preconnect", href: "https://cdn.shopify.com/" }, void 0, false, {
-        fileName: "app/root.tsx",
-        lineNumber: 41,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("link", { rel: "stylesheet", href: "https://cdn.shopify.com/static/fonts/inter/v4/styles.css" }, void 0, false, {
-        fileName: "app/root.tsx",
-        lineNumber: 42,
+        lineNumber: 34,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Meta, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 44,
+        lineNumber: 35,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Links, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 45,
+        lineNumber: 36,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "app/root.tsx",
+      lineNumber: 32,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("body", { children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Outlet, {}, void 0, false, {
+        fileName: "app/root.tsx",
+        lineNumber: 39,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ScrollRestoration, {}, void 0, false, {
+        fileName: "app/root.tsx",
+        lineNumber: 40,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Scripts, {}, void 0, false, {
+        fileName: "app/root.tsx",
+        lineNumber: 41,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(LiveReload, {}, void 0, false, {
+        fileName: "app/root.tsx",
+        lineNumber: 42,
         columnNumber: 9
       }, this)
     ] }, void 0, true, {
       fileName: "app/root.tsx",
       lineNumber: 38,
       columnNumber: 7
-    }, this),
-    /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("body", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Outlet, {}, void 0, false, {
-        fileName: "app/root.tsx",
-        lineNumber: 48,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ScrollRestoration, {}, void 0, false, {
-        fileName: "app/root.tsx",
-        lineNumber: 49,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Scripts, {}, void 0, false, {
-        fileName: "app/root.tsx",
-        lineNumber: 50,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(LiveReload, {}, void 0, false, {
-        fileName: "app/root.tsx",
-        lineNumber: 51,
-        columnNumber: 9
-      }, this)
-    ] }, void 0, true, {
-      fileName: "app/root.tsx",
-      lineNumber: 47,
-      columnNumber: 7
     }, this)
   ] }, void 0, true, {
     fileName: "app/root.tsx",
-    lineNumber: 37,
+    lineNumber: 31,
     columnNumber: 10
   }, this);
 }
-_s(App, "OkbQxR4MmTZWMtDciFEyh6Qymi4=", false, function() {
-  return [useLoaderData];
-});
 _c = App;
 function ErrorBoundary() {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("html", { children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("head", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("title", { children: "Oh no!" }, void 0, false, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("title", { children: "Error" }, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 62,
+        lineNumber: 50,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Meta, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 63,
+        lineNumber: 51,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Links, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 64,
+        lineNumber: 52,
         columnNumber: 9
       }, this)
     ] }, void 0, true, {
       fileName: "app/root.tsx",
-      lineNumber: 61,
+      lineNumber: 49,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("body", { children: [
@@ -153,32 +135,32 @@ function ErrorBoundary() {
       }, children: [
         /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h1", { children: "Something went wrong" }, void 0, false, {
           fileName: "app/root.tsx",
-          lineNumber: 71,
+          lineNumber: 59,
           columnNumber: 11
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { children: "We're working on fixing this issue." }, void 0, false, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { children: "Please try refreshing the page." }, void 0, false, {
           fileName: "app/root.tsx",
-          lineNumber: 72,
+          lineNumber: 60,
           columnNumber: 11
         }, this)
       ] }, void 0, true, {
         fileName: "app/root.tsx",
-        lineNumber: 67,
+        lineNumber: 55,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Scripts, {}, void 0, false, {
         fileName: "app/root.tsx",
-        lineNumber: 74,
+        lineNumber: 62,
         columnNumber: 9
       }, this)
     ] }, void 0, true, {
       fileName: "app/root.tsx",
-      lineNumber: 66,
+      lineNumber: 54,
       columnNumber: 7
     }, this)
   ] }, void 0, true, {
     fileName: "app/root.tsx",
-    lineNumber: 60,
+    lineNumber: 48,
     columnNumber: 10
   }, this);
 }
@@ -193,4 +175,4 @@ export {
   ErrorBoundary,
   App as default
 };
-//# sourceMappingURL=/build/root-6XJFF3QM.js.map
+//# sourceMappingURL=/build/root-N3A66IDO.js.map

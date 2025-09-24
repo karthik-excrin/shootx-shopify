@@ -1,4 +1,4 @@
-import type { HeadersFunction, LoaderFunctionArgs } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
   Links,
@@ -7,30 +7,20 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
 } from "@remix-run/react";
-import "@shopify/polaris/build/esm/styles.css";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  // Skip authentication in development
   return json({
-    apiKey: process.env.SHOPIFY_API_KEY || "development",
+    message: "ShootX AI Fashion Try-On App"
   });
 };
 
 export default function App() {
-  const { apiKey } = useLoaderData<typeof loader>();
-
   return (
     <html>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="preconnect" href="https://cdn.shopify.com/" />
-        <link
-          rel="stylesheet"
-          href="https://cdn.shopify.com/static/fonts/inter/v4/styles.css"
-        />
         <Meta />
         <Links />
       </head>
@@ -48,14 +38,14 @@ export function ErrorBoundary() {
   return (
     <html>
       <head>
-        <title>Oh no!</title>
+        <title>Error</title>
         <Meta />
         <Links />
       </head>
       <body>
         <div style={{ padding: '2rem', textAlign: 'center' }}>
           <h1>Something went wrong</h1>
-          <p>We're working on fixing this issue.</p>
+          <p>Please try refreshing the page.</p>
         </div>
         <Scripts />
       </body>
