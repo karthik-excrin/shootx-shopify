@@ -12,7 +12,7 @@ import {
   BlockStack,
   Divider
 } from '@shopify/polaris';
-import { MaximizeIcon, MinimizeIcon, SearchIcon, ArrowDownIcon, XIcon } from '@shopify/polaris-icons';
+import { ExpandIcon, CollapseIcon, SearchIcon, ArrowDownIcon, XSmallIcon } from '@shopify/polaris-icons';
 import { Product, ProductVariant, TryOnResult } from '../types';
 import { POSE_OPTIONS } from '../utils/constants';
 import { MockAPIService, handleAPIError } from '../services/api';
@@ -202,7 +202,7 @@ export const TryOnWidget: React.FC<TryOnWidgetProps> = ({
             onClick={toggleZoom}
             className="absolute top-4 right-4 w-10 h-10 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-opacity-30 transition-all"
           >
-            <XIcon />
+            <XSmallIcon />
           </button>
         </div>
       </div>
@@ -293,7 +293,7 @@ export const TryOnWidget: React.FC<TryOnWidgetProps> = ({
                         className="p-1.5 text-white hover:bg-gray-700 rounded-lg transition-colors"
                         title={isMaximized ? "Restore size" : "Maximize"}
                       >
-                        {isMaximized ? <MinimizeIcon /> : <MaximizeIcon />}
+                        {isMaximized ? <CollapseIcon /> : <ExpandIcon />}
                       </button>
                     )}
                     <button
@@ -301,14 +301,14 @@ export const TryOnWidget: React.FC<TryOnWidgetProps> = ({
                       className="p-1.5 text-white hover:bg-gray-700 rounded-lg transition-colors"
                       title={isMinimized ? "Expand" : "Minimize"}
                     >
-                      {isMinimized ? <MaximizeIcon /> : <MinimizeIcon />}
+                      {isMinimized ? <ExpandIcon /> : <CollapseIcon />}
                     </button>
                     <button
                       onClick={onClose}
                       className="p-1.5 text-white hover:bg-gray-700 rounded-lg transition-colors"
                       title="Close widget"
                     >
-                      <XIcon />
+                      <XSmallIcon />
                     </button>
                   </div>
                 )}
