@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Button, Badge, ButtonGroup, Select } from '@shopify/polaris';
-import { FavoriteIcon } from '@shopify/polaris-icons';
+import { HeartMajor } from '@shopify/polaris-icons';
 
 interface TryOnResultsProps {
   results: any;
@@ -88,7 +88,7 @@ export const TryOnResults: React.FC<TryOnResultsProps> = ({
                   <Button
                     variant="secondary"
                     size="slim"
-                    icon={FavoriteIcon}
+                    icon={HeartMajor}
                     onClick={() => setIsFavorited(!isFavorited)}
                     className={isFavorited ? 'text-red-500' : ''}
                   >
