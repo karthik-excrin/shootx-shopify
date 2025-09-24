@@ -1,6 +1,6 @@
 import React from 'react';
 import { Frame, Navigation, TopBar, Toast } from '@shopify/polaris';
-import { HomeIcon, ProductIcon, CustomersIcon, AnalyticsIcon } from '@shopify/polaris-icons';
+import { HomeMajor, ProductsMajor, CustomersMajor, AnalyticsMajor } from '@shopify/polaris-icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 interface ShopifyAppLayoutProps {
@@ -17,35 +17,35 @@ export const ShopifyAppLayout: React.FC<ShopifyAppLayoutProps> = ({ children }) 
         items={[
           {
             label: 'Dashboard',
-            icon: HomeIcon,
+            icon: HomeMajor,
             url: '/',
             selected: location.pathname === '/',
             onClick: () => navigate('/'),
           },
           {
             label: 'AI Try-On Studio',
-            icon: ProductIcon,
+            icon: ProductsMajor,
             url: '/try-on',
             selected: location.pathname === '/try-on',
             onClick: () => navigate('/try-on'),
           },
           {
             label: 'Product Catalog',
-            icon: ProductIcon,
+            icon: ProductsMajor,
             url: '/products',
             selected: location.pathname === '/products',
             onClick: () => navigate('/products'),
           },
           {
             label: 'Customer Insights',
-            icon: CustomersIcon,
+            icon: CustomersMajor,
             url: '/customers',
             selected: location.pathname === '/customers',
             onClick: () => navigate('/customers'),
           },
           {
             label: 'Analytics',
-            icon: AnalyticsIcon,
+            icon: AnalyticsMajor,
             url: '/analytics',
             selected: location.pathname === '/analytics',
             onClick: () => navigate('/analytics'),
