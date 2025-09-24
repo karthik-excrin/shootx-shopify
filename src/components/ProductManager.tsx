@@ -1,25 +1,47 @@
 import React, { useState } from 'react';
-import {
-  Page,
-  Layout,
-  Card,
-  DataTable,
-  Button,
-  Badge,
-  TextField,
-  Select,
-  Modal,
-  FormLayout,
-  Checkbox,
-  Toast,
-  Box,
-  InlineStack,
-  BlockStack
-} from '@shopify/polaris';
-import { useShopifyData } from '../hooks/useShopifyData';
+import { Card, Page, Layout, Button, DataTable, Modal, TextField, Select, Toast, Frame } from '@shopify/polaris';
+import { PlusMinor, EditMinor, DeleteMinor } from '@shopify/polaris-icons';
+
+interface Product {
+  id: string;
+  title: string;
+  handle: string;
+  description: string;
+  images: Array<{ id: string; src: string; alt: string }>;
+  variants: Array<{
+    id: string;
+    title: string;
+    price: string;
+    inventory_quantity: number;
+  }>;
+}
 
 export const ProductManager: React.FC = () => {
-  const { products, loading, createProduct, updateProduct } = useShopifyData();
+  // Mock data for standalone preview mode
+  const mockProducts = [
+    {
+      id: '1',
+      title: 'Classic White T-Shirt',
+      handle: 'classic-white-tshirt',
+      description: 'A comfortable cotton t-shirt perfect for everyday wear',
+      images: [{ id: '1', src: 'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg', alt: 'White T-Shirt' }],
+      variants: [{ id: '1', title: 'Default', price: '29.99', inventory_quantity: 100 }]
+    },
+    {
+      id: '2',
+      title: 'Denim Jacket',
+      handle: 'denim-jacket',
+      description: 'Stylish denim jacket for a casual look',
+      images: [{ id: '2', src: 'https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg', alt: 'Denim Jacket' }],
+      variants: [{ id: '2', title: 'Default', price: '89.99', inventory_quantity: 50 }]
+    }
+  ];
+
+  const products = mockProducts;
+  const loading = false;
+  const error = null;
+
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -74,6 +96,31 @@ export const ProductManager: React.FC = () => {
       price: product.variants[0]?.price || '',
     });
     setIsModalOpen(true);
+  };
+
+  const handleCreateProduct = async () => {
+    try {
+      // Mock create product for standalone mode
+      console.log('Creating product:', newProduct);
+      setToast({ content: 'Product created successfully!', error: false });
+      setIsCreateModalOpen(false);
+      setNewProduct({ title: '', description: '', price: '', inventory: '' });
+    } catch (err) {
+      setToast({ content: 'Failed to create product', error: true });
+    }
+  };
+
+  const handleUpdateProduct = async () => {
+    if (!selectedProduct) return;
+    try {
+      // Mock update product for standalone mode
+      console.log('Updating product:', selectedProduct.id, editProduct);
+      setToast({ content: 'Product updated successfully!', error: false });
+      setIsEditModalOpen(false);
+      setSelectedProduct(null);
+    } catch (err) {
+      setToast({ content: 'Failed to update product', error: true });
+    }
   };
 
   const handleSaveProduct = async () => {
