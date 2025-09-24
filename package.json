@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
+    "dev": "remix dev --manual",
     "dev": "remix dev --manual",
     "shopify:dev": "npx shopify app dev",
     "config:link": "shopify app config link",
