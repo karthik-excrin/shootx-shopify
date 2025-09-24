@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Page, Layout, Button, DataTable, Modal, TextField, Select, Toast, Frame } from '@shopify/polaris';
+import { Card, Page, Layout, Button, DataTable, Modal, TextField, Select, Toast, Frame, Badge, FormLayout, Checkbox, Box, BlockStack, InlineStack } from '@shopify/polaris';
 import { PlusMinor, EditMinor, DeleteMinor } from '@shopify/polaris-icons';
 
 interface Product {
