@@ -18,7 +18,6 @@ export const Dashboard: React.FC = () => {
   const { products, customers, loading } = useShopifyData();
 
   const tryOnStats = {
-    totalTryOns: 1247,
     avgFitScore: 87,
     topProduct: 'Elegant Floral Midi Dress'
   };
