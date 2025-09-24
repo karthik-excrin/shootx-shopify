@@ -1,178 +1,95 @@
-import type { LoaderFunctionArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-import {
-  Page,
-  Layout,
-  Text,
-  Card,
-  Button,
-  BlockStack,
-  Box,
-  List,
-  Link,
-  InlineStack,
-} from "@shopify/polaris";
-import { TitleBar } from "@shopify/app-bridge-react";
-import { authenticate } from "../shopify.server";
-
-export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const { admin, session } = await authenticate.admin(request);
-
-  return json({
-    shop: session.shop,
-  });
-};
+import { Link } from "@remix-run/react";
 
 export default function Index() {
-  const { shop } = useLoaderData<typeof loader>();
-
   return (
-    <Page>
-      <TitleBar title="AI Fashion Try-On App" />
-      <BlockStack gap="500">
-        <Layout>
-          <Layout.Section>
-            <Card>
-              <BlockStack gap="500">
-                <BlockStack gap="200">
-                  <Text as="h2" variant="headingMd">
-                    Welcome to AI Fashion Try-On! 🎉
-                  </Text>
-                  <Text variant="bodyMd" as="p">
-                    Transform your fashion store with cutting-edge AI virtual try-on technology.
-                    Help your customers visualize how clothes will look on them before they buy.
-                  </Text>
-                </BlockStack>
-                <BlockStack gap="200">
-                  <Text as="h3" variant="headingMd">
-                    Get started with AI Try-On
-                  </Text>
-                  <List>
-                    <List.Item>
-                      Set up your products for AI try-on compatibility
-                    </List.Item>
-                    <List.Item>
-                      Configure AI processing settings
-                    </List.Item>
-                    <List.Item>
-                      Launch the try-on experience for your customers
-                    </List.Item>
-                  </List>
-                </BlockStack>
-                <InlineStack gap="300">
-                  <Button variant="primary" url="/app/products">
-                    Manage Products
-                  </Button>
-                  <Button url="/app/try-on">
-                    Try-On Studio
-                  </Button>
-                  <Button
-                    url="https://help.shopify.com/manual/apps"
-                    target="_blank"
-                  >
-                    Learn more
-                  </Button>
-                </InlineStack>
-              </BlockStack>
-            </Card>
-          </Layout.Section>
-          <Layout.Section variant="oneThird">
-            <BlockStack gap="500">
-              <Card>
-                <BlockStack gap="200">
-                  <Text as="h2" variant="headingMd">
-                    App template specs
-                  </Text>
-                  <BlockStack gap="200">
-                    <InlineStack align="space-between">
-                      <Text as="span" variant="bodyMd">
-                        Framework
-                      </Text>
-                      <Link
-                        url="https://remix.run"
-                        target="_blank"
-                        removeUnderline
-                      >
-                        Remix
-                      </Link>
-                    </InlineStack>
-                    <InlineStack align="space-between">
-                      <Text as="span" variant="bodyMd">
-                        Database
-                      </Text>
-                      <Link
-                        url="https://www.prisma.io/"
-                        target="_blank"
-                        removeUnderline
-                      >
-                        Prisma
-                      </Link>
-                    </InlineStack>
-                    <InlineStack align="space-between">
-                      <Text as="span" variant="bodyMd">
-                        Interface
-                      </Text>
-                      <span>
-                        <Link
-                          url="https://polaris.shopify.com"
-                          target="_blank"
-                          removeUnderline
-                        >
-                          Polaris
-                        </Link>
-                      </span>
-                    </InlineStack>
-                    <InlineStack align="space-between">
-                      <Text as="span" variant="bodyMd">
-                        API
-                      </Text>
-                      <Link
-                        url="https://shopify.dev/docs/api"
-                        target="_blank"
-                        removeUnderline
-                      >
-                        GraphQL Admin API
-                      </Link>
-                    </InlineStack>
-                  </BlockStack>
-                </BlockStack>
-              </Card>
-              <Card>
-                <BlockStack gap="200">
-                  <Text as="h2" variant="headingMd">
-                    Next steps
-                  </Text>
-                  <List>
-                    <List.Item>
-                      Build an{" "}
-                      <Link
-                        url="https://shopify.dev/docs/apps/getting-started/build-app-example"
-                        target="_blank"
-                        removeUnderline
-                      >
-                        {" "}
-                        example app
-                      </Link>{" "}
-                      to get started
-                    </List.Item>
-                    <List.Item>
-                      Explore Shopify's GraphQL Admin API with the{" "}
-                      <Link
-                        url="https://shopify.dev/docs/apps/tools/graphiql-admin-api"
-                        target="_blank"
-                        removeUnderline
-                      >
-                        GraphiQL explorer
-                      </Link>
-                    </List.Item>
-                  </List>
-                </BlockStack>
-              </Card>
-            </BlockStack>
-          </Layout.Section>
-        </Layout>
-      </BlockStack>
-    </Page>
+    <div style={{ 
+      minHeight: '100vh', 
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: 'system-ui, sans-serif'
+    }}>
+      <div style={{
+        background: 'white',
+        padding: '3rem',
+        borderRadius: '20px',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+        textAlign: 'center',
+        maxWidth: '600px',
+        margin: '2rem'
+      }}>
+        <h1 style={{
+          fontSize: '3rem',
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          marginBottom: '1rem'
+        }}>
+          🎯 AI Fashion Try-On
+        </h1>
+        <p style={{
+          fontSize: '1.2rem',
+          color: '#666',
+          marginBottom: '2rem',
+          lineHeight: '1.6'
+        }}>
+          Transform your fashion store with cutting-edge AI virtual try-on technology powered by ComfyUI workflow and RunPod processing.
+        </p>
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <Link 
+            to="/try-on" 
+            style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              color: 'white',
+              padding: '1rem 2rem',
+              borderRadius: '10px',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              transition: 'transform 0.2s',
+              display: 'inline-block'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+            onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            🚀 Try-On Studio
+          </Link>
+          <Link 
+            to="/products" 
+            style={{
+              background: 'white',
+              color: '#667eea',
+              padding: '1rem 2rem',
+              borderRadius: '10px',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              border: '2px solid #667eea',
+              transition: 'all 0.2s',
+              display: 'inline-block'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.background = '#667eea';
+              e.currentTarget.style.color = 'white';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.background = 'white';
+              e.currentTarget.style.color = '#667eea';
+            }}
+          >
+            📦 Manage Products
+          </Link>
+        </div>
+        <div style={{
+          marginTop: '2rem',
+          padding: '1rem',
+          background: '#f8f9ff',
+          borderRadius: '10px',
+          fontSize: '0.9rem',
+          color: '#666'
+        }}>
+          <strong>🔧 Tech Stack:</strong> ComfyUI Workflow • RunPod API • Automatic Dress Fetching • Real-time Processing
+        </div>
+      </div>
+    </div>
   );
 }
