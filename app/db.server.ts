@@ -48,9 +48,12 @@ function createTables() {
       productId TEXT NOT NULL,
       variantId TEXT NOT NULL,
       userPhoto TEXT NOT NULL,
-      resultImage TEXT NOT NULL,
-      fitScore INTEGER NOT NULL,
+      resultImage TEXT DEFAULT '',
+      fitScore INTEGER DEFAULT 0,
       pose TEXT NOT NULL,
+      jobId TEXT,
+      status TEXT DEFAULT 'pending',
+      processingTime INTEGER DEFAULT 0,
       createdAt INTEGER DEFAULT (strftime('%s', 'now')),
       updatedAt INTEGER DEFAULT (strftime('%s', 'now'))
     )
@@ -178,17 +181,50 @@ export const database = {
     productId: string;
     variantId: string;
     userPhoto: string;
-    resultImage: string;
-    fitScore: number;
+    resultImage?: string;
+    fitScore?: number;
     pose: string;
+    jobId?: string;
+    status?: string;
   }) => {
     const db = getDatabase();
     const id = `tryon_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     const stmt = db.prepare(`
-      INSERT INTO tryOnResults (id, customerId, productId, variantId, userPhoto, resultImage, fitScore, pose)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO tryOnResults (id, customerId, productId, variantId, userPhoto, resultImage, fitScore, pose, jobId, status)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
-    stmt.run(id, data.customerId, data.productId, data.variantId, data.userPhoto, data.resultImage, data.fitScore, data.pose);
+    stmt.run(
+      id, 
+      data.customerId, 
+      data.productId, 
+      data.variantId, 
+      data.userPhoto, 
+      data.resultImage || '', 
+      data.fitScore || 0, 
+      data.pose,
+      data.jobId || '',
+      data.status || 'pending'
+    );
+    return id;
+  },
+
+  updateTryOnResult: (id: string, data: {
+    resultImage?: string;
+    fitScore?: number;
+    status?: string;
+    processingTime?: number;
+  }) => {
+    const db = getDatabase();
+    const stmt = db.prepare(`
+      UPDATE tryOnResults 
+      SET resultImage = COALESCE(?, resultImage),
+          fitScore = COALESCE(?, fitScore),
+          status = COALESCE(?, status),
+          processingTime = COALESCE(?, processingTime),
+          updatedAt = strftime('%s', 'now')
+      WHERE id = ?
+    `);
+    stmt.run(data.resultImage, data.fitScore, data.status, data.processingTime, id);
     return id;
   },
 
