@@ -12,7 +12,7 @@ import {
   BlockStack,
   Divider
 } from '@shopify/polaris';
-import { ExpandIcon, CollapseIcon, SearchMinor, ArrowDownMinor, XSmallIcon } from '@shopify/polaris-icons';
+import { ExpandIcon, MinusMinor, SearchMinor, ArrowDownMinor, XSmallIcon } from '@shopify/polaris-icons';
 import { Product, ProductVariant, TryOnResult } from '../types';
 import { POSE_OPTIONS } from '../utils/constants';
 import { MockAPIService, handleAPIError } from '../services/api';
@@ -293,7 +293,7 @@ export const TryOnWidget: React.FC<TryOnWidgetProps> = ({
                         className="p-1.5 text-white hover:bg-gray-700 rounded-lg transition-colors"
                         title={isMaximized ? "Restore size" : "Maximize"}
                       >
-                        {isMaximized ? <CollapseIcon /> : <ExpandIcon />}
+                        {isMaximized ? <MinusMinor /> : <ExpandIcon />}
                       </button>
                     )}
                     <button
@@ -301,7 +301,7 @@ export const TryOnWidget: React.FC<TryOnWidgetProps> = ({
                       className="p-1.5 text-white hover:bg-gray-700 rounded-lg transition-colors"
                       title={isMinimized ? "Expand" : "Minimize"}
                     >
-                      {isMinimized ? <ExpandIcon /> : <CollapseIcon />}
+                      {isMinimized ? <ExpandIcon /> : <MinusMinor />}
                     </button>
                     <button
                       onClick={onClose}
