@@ -1,183 +1,271 @@
-import React, { useState } from 'react'
-import { Camera, Upload, Sparkles, Download, Share2, RotateCcw, Zap } from 'lucide-react'
+import React, { useState, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Card, Button, ProgressBar, Badge, Select, ButtonGroup } from '@shopify/polaris';
+import { TryOnResults } from './TryOnResults';
 
-const TryOnStudio = () => {
-  const [selectedProduct, setSelectedProduct] = useState(null)
-  const [uploadedImage, setUploadedImage] = useState(null)
-
-  const products = [
-    {
-      id: '1',
-      title: 'Summer Floral Dress',
-      image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=300',
-      category: 'Dresses'
-    },
-    {
-      id: '2',
-      title: 'Classic Denim Jacket',
-      image: 'https://images.pexels.com/photos/1124468/pexels-photo-1124468.jpeg?auto=compress&cs=tinysrgb&w=300',
-      category: 'Jackets'
-    },
-    {
-      id: '3',
-      title: 'Casual Cotton T-Shirt',
-      image: 'https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=300',
-      category: 'T-Shirts'
-    }
-  ]
-
-  return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">AI Try-On Studio</h1>
-        <p className="text-gray-600 text-lg">Experience the future of fashion with AI-powered virtual try-on</p>
-      </div>
-
-      {/* Main Studio Interface */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Product Selection */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <Sparkles className="w-5 h-5 mr-2 text-purple-600" />
-            Select Product
-          </h3>
-          <div className="space-y-3">
-            {products.map((product) => (
-              <div
-                key={product.id}
-                onClick={() => setSelectedProduct(product)}
-                className={`p-3 rounded-lg border-2 cursor-pointer transition-all ${
-                  selectedProduct?.id === product.id
-                    ? 'border-purple-500 bg-purple-50'
-                    : 'border-gray-200 hover:border-gray-300'
-                }`}
-              >
-                <div className="flex items-center space-x-3">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="w-12 h-12 object-cover rounded-lg"
-                  />
-                  <div>
-                    <p className="font-medium text-gray-900 text-sm">{product.title}</p>
-                    <p className="text-xs text-gray-500">{product.category}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Image Upload */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <Camera className="w-5 h-5 mr-2 text-blue-600" />
-            Upload Photo
-          </h3>
-          
-          {!uploadedImage ? (
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-gray-400 transition-colors">
-              <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 mb-2">Upload a photo to try on</p>
-              <p className="text-sm text-gray-500 mb-4">PNG, JPG up to 10MB</p>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                Choose File
-              </button>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              <div className="aspect-w-3 aspect-h-4 bg-gray-100 rounded-lg overflow-hidden">
-                <img
-                  src={uploadedImage}
-                  alt="Uploaded"
-                  className="w-full h-64 object-cover"
-                />
-              </div>
-              <button
-                onClick={() => setUploadedImage(null)}
-                className="w-full flex items-center justify-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors"
-              >
-                <RotateCcw className="w-4 h-4" />
-                <span>Upload Different Photo</span>
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* AI Processing & Results */}
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <Zap className="w-5 h-5 mr-2 text-yellow-600" />
-            AI Try-On Result
-          </h3>
-          
-          {selectedProduct && uploadedImage ? (
-            <div className="space-y-4">
-              <div className="aspect-w-3 aspect-h-4 bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                  <p className="text-purple-700 font-medium">AI Processing...</p>
-                  <p className="text-sm text-purple-600">This may take a few seconds</p>
-                </div>
-              </div>
-              <div className="flex space-x-2">
-                <button className="flex-1 flex items-center justify-center space-x-2 bg-green-600 text-white px-3 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm">
-                  <Download className="w-4 h-4" />
-                  <span>Download</span>
-                </button>
-                <button className="flex items-center justify-center p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                  <Share2 className="w-4 h-4 text-gray-600" />
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Sparkles className="w-8 h-8 text-gray-400" />
-              </div>
-              <p className="text-gray-600 mb-2">Ready for AI magic!</p>
-              <p className="text-sm text-gray-500">
-                {!selectedProduct && !uploadedImage
-                  ? 'Select a product and upload a photo to begin'
-                  : !selectedProduct
-                  ? 'Select a product to continue'
-                  : 'Upload a photo to continue'}
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Features Section */}
-      <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 text-white">
-        <h3 className="text-2xl font-bold mb-6 text-center">AI Try-On Features</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center">
-            <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
-              <Zap className="w-6 h-6" />
-            </div>
-            <h4 className="font-semibold mb-2">Real-time Processing</h4>
-            <p className="text-purple-100 text-sm">Get instant try-on results with our advanced AI technology</p>
-          </div>
-          <div className="text-center">
-            <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
-              <Camera className="w-6 h-6" />
-            </div>
-            <h4 className="font-semibold mb-2">Multiple Angles</h4>
-            <p className="text-purple-100 text-sm">View how clothes look from different perspectives</p>
-          </div>
-          <div className="text-center">
-            <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center mx-auto mb-3">
-              <Sparkles className="w-6 h-6" />
-            </div>
-            <h4 className="font-semibold mb-2">High Accuracy</h4>
-            <p className="text-purple-100 text-sm">Realistic fit and appearance with 95% accuracy</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+interface TryOnStudioProps {
+  addToCart: (product: any, variant: any) => void;
+  addToTryOnHistory: (tryOnData: any) => void;
 }
 
-export default TryOnStudio
+export const TryOnStudio: React.FC<TryOnStudioProps> = ({ addToCart, addToTryOnHistory }) => {
+  const location = useLocation();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  
+  const [selectedProduct, setSelectedProduct] = useState(location.state?.selectedProduct || null);
+  const [selectedVariant, setSelectedVariant] = useState(location.state?.selectedVariant || null);
+  const [userPhoto, setUserPhoto] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [results, setResults] = useState<any>(null);
+  const [selectedPose, setSelectedPose] = useState('front');
+
+  const poseOptions = [
+    { label: 'Front View', value: 'front' },
+    { label: 'Side View', value: 'side' },
+    { label: '3/4 View', value: 'three-quarter' }
+  ];
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setUserPhoto(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const simulateAIProcessing = async () => {
+    setIsProcessing(true);
+    setProgress(0);
+    
+    // Simulate AI processing stages
+    const stages = [
+      { progress: 20, message: 'Analyzing your photo...' },
+      { progress: 40, message: 'Detecting body measurements...' },
+      { progress: 60, message: 'Fitting the garment...' },
+      { progress: 80, message: 'Applying realistic lighting...' },
+      { progress: 100, message: 'Generating final result...' }
+    ];
+    
+    for (const stage of stages) {
+      setProgress(stage.progress);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
+    
+    // Generate mock results
+    const tryOnResult = {
+      id: Date.now(),
+      product: selectedProduct,
+      variant: selectedVariant,
+      pose: selectedPose,
+      userPhoto,
+      processedAt: new Date().toISOString(),
+      results: {
+        front: `https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=400`,
+        side: `https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=400`,
+        'three-quarter': `https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=400`
+      },
+      fitScore: Math.floor(Math.random() * 20) + 80, // 80-100%
+      recommendations: [
+        'Great fit! This size looks perfect on you.',
+        'The color complements your skin tone beautifully.',
+        'Consider pairing with neutral accessories.'
+      ]
+    };
+    
+    setResults(tryOnResult);
+    addToTryOnHistory(tryOnResult);
+    setIsProcessing(false);
+    setProgress(0);
+  };
+
+  const handleTryOn = () => {
+    if (selectedProduct && selectedVariant && userPhoto) {
+      simulateAIProcessing();
+    }
+  };
+
+  const resetTryOn = () => {
+    setResults(null);
+    setUserPhoto(null);
+    setProgress(0);
+  };
+
+  if (results) {
+    return (
+      <TryOnResults
+        results={results}
+        addToCart={addToCart}
+        onNewTryOn={resetTryOn}
+      />
+    );
+  }
+
+  return (
+    <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          AI Try-On Studio
+        </h1>
+        <p className="text-gray-600">
+          Upload your photo and see how clothes look on you with advanced AI technology
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Upload Section */}
+        <Card>
+          <div className="p-6">
+            <h2 className="text-xl font-semibold mb-4">Step 1: Upload Your Photo</h2>
+            
+            {!userPhoto ? (
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">📷</span>
+                </div>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">
+                  Upload a clear photo of yourself
+                </h3>
+                <p className="text-gray-500 mb-4">
+                  Best results with full body, front-facing photos in good lighting
+                </p>
+                <Button
+                  variant="primary"
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  Choose Photo
+                </Button>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                />
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <div className="relative">
+                  <img
+                    src={userPhoto}
+                    alt="User uploaded photo"
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+                  <Button
+                    variant="secondary"
+                    size="slim"
+                    onClick={() => setUserPhoto(null)}
+                    className="absolute top-2 right-2"
+                  >
+                    Change Photo
+                  </Button>
+                </div>
+                <Badge status="success">Photo uploaded successfully!</Badge>
+              </div>
+            )}
+          </div>
+        </Card>
+
+        {/* Product Selection */}
+        <Card>
+          <div className="p-6">
+            <h2 className="text-xl font-semibold mb-4">Step 2: Select Product</h2>
+            
+            {!selectedProduct ? (
+              <div className="text-center py-8">
+                <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">👗</span>
+                </div>
+                <p className="text-gray-500 mb-4">
+                  Go to the product catalog to select an item for try-on
+                </p>
+                <Button variant="secondary" url="/">
+                  Browse Products
+                </Button>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <div className="flex space-x-4">
+                  <img
+                    src={selectedProduct.images[0]}
+                    alt={selectedProduct.title}
+                    className="w-20 h-20 object-cover rounded-lg"
+                  />
+                  <div className="flex-1">
+                    <h3 className="font-medium text-gray-900">
+                      {selectedProduct.title}
+                    </h3>
+                    <p className="text-sm text-gray-500">
+                      Size: {selectedVariant?.size} | ${selectedVariant?.price}
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <label className="text-sm font-medium text-gray-700">
+                      Photo Pose Selection
+                    </label>
+                  </div>
+                  <Select
+                    label=""
+                    options={poseOptions}
+                    value={selectedPose}
+                    onChange={setSelectedPose}
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Match your photo's angle for better results.
+                  </p>
+                </div>
+                
+                <Button
+                  variant="secondary"
+                  size="slim"
+                  url="/"
+                >
+                  Change Product
+                </Button>
+              </div>
+            )}
+          </div>
+        </Card>
+      </div>
+
+      {/* Try-On Section */}
+      {selectedProduct && userPhoto && (
+        <Card sectioned>
+          <div className="text-center space-y-4">
+            <h2 className="text-xl font-semibold">Ready to Try On!</h2>
+            <p className="text-gray-600">
+              Our AI will analyze your photo and show you how the {selectedProduct.title} looks on you
+            </p>
+            
+            {isProcessing && (
+              <div className="max-w-md mx-auto space-y-3">
+                <ProgressBar progress={progress} />
+                <p className="text-sm text-gray-500">
+                  Processing your try-on... This may take a few seconds
+                </p>
+              </div>
+            )}
+            
+            <ButtonGroup>
+              <Button
+                variant="primary"
+                size="large"
+                onClick={handleTryOn}
+                loading={isProcessing}
+                disabled={isProcessing}
+              >
+                {isProcessing ? 'Processing...' : 'Generate AI Try-On'}
+              </Button>
+            </ButtonGroup>
+          </div>
+        </Card>
+      )}
+    </div>
+  );
+};
