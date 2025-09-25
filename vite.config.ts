@@ -13,6 +13,7 @@ export default defineConfig({
     esbuildOptions: {
       target: "es2022",
     },
+    include: ["@shopify/shopify-app-remix"],
   },
   server: {
     port: 3000,
