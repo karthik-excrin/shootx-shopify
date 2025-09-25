@@ -2,61 +2,25 @@
   "name": "ai-fashion-tryon-shopify-app",
   "private": true,
   "version": "1.0.0",
-  "sideEffects": false,
+  "type": "module",
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev --port 3000",
-    "config:link": "shopify app config link",
-    "generate": "shopify app generate",
-    "deploy": "shopify app deploy",
-    "config:use": "shopify app config use",
-    "env": "shopify app env",
-    "start": "remix-serve build",
-    "docker-start": "npm run setup && npm run start",
-    "setup": "prisma generate && prisma migrate deploy",
-    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "shopify": "shopify",
-    "prisma": "prisma",
-    "graphql-codegen": "graphql-codegen",
-    "vite": "vite"
+    "build": "vite build",
+    "dev": "vite --port 3000 --host",
+    "preview": "vite preview",
+    "setup": "prisma generate && prisma migrate deploy"
   },
   "dependencies": {
-    "@prisma/client": "^6.5.0",
-    "@remix-run/dev": "^2.7.1",
-    "@remix-run/fs-routes": "^2.15.0",
-    "@remix-run/node": "^2.7.1",
-    "@remix-run/react": "^2.7.1",
-    "@remix-run/serve": "^2.7.1",
-    "@shopify/app-bridge-react": "^4.1.6",
-    "@shopify/polaris": "^12.0.0",
-    "@shopify/shopify-app-remix": "^3.4.0",
-    "@shopify/shopify-app-session-storage-prisma": "^6.0.0",
-    "isbot": "^5.1.0",
-    "luxon": "^3.7.2",
-    "prisma": "^6.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "vite-tsconfig-paths": "^5.0.1",
     "lucide-react": "^0.344.0",
-    "@shopify/polaris-icons": "^7.0.0"
+    "@prisma/client": "^5.0.0",
+    "prisma": "^5.0.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.7.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
-    "@types/luxon": "^3.4.2",
-    "eslint": "^8.42.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "typescript": "^5.5.3",
-    "vite": "^5.4.2",
-    "@vitejs/plugin-react": "^4.3.1"
-  },
-  "workspaces": [
-    "extensions/*"
-  ],
-  "trustedDependencies": [
-    "@shopify/plugin-cloudflare"
-  ],
-  "engines": {
-    "node": "^18.20 || ^20.10 || >=21.0.0"
+    "vite": "^5.4.2"
   }
 }
