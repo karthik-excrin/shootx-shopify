@@ -16,10 +16,9 @@ import { TitleBar } from "@shopify/app-bridge-react";
 import { authenticate } from "../shopify.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const { admin, session } = await authenticate.admin(request);
-
+  // Always return mock data for development
   return json({
-    shop: session.shop,
+    shop: "development-shop.myshopify.com",
   });
 };
 

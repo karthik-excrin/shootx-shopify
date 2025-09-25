@@ -17,30 +17,11 @@ import polarisStyles from "@shopify/polaris/build/esm/styles.css";
 export const links = () => [{ rel: "stylesheet", href: polarisStyles }];
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  // For development, return mock data
-  if (process.env.NODE_ENV === "development") {
-    return json({
-      polarisTranslations: {},
-      apiKey: process.env.SHOPIFY_API_KEY || "development-key",
-    });
-  }
-
-  // In production, use proper authentication
-  try {
-    const { authenticate } = await import("./shopify.server");
-    await authenticate.admin(request);
-
-    return json({
-      polarisTranslations: require("@shopify/polaris/locales/en.json"),
-      apiKey: process.env.SHOPIFY_API_KEY || "",
-    });
-  } catch (error) {
-    // Fallback for development
-    return json({
-      polarisTranslations: {},
-      apiKey: process.env.SHOPIFY_API_KEY || "development-key",
-    });
-  }
+  // Always return mock data for development
+  return json({
+    polarisTranslations: {},
+    apiKey: "development-key",
+  });
 };
 
 export default function App() {

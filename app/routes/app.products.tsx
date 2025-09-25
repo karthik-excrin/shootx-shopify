@@ -15,79 +15,31 @@ import {
 import { TitleBar } from "@shopify/app-bridge-react";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  // For development, return mock data
-  if (process.env.NODE_ENV === "development") {
-    const mockProducts = [
-      {
-        id: "1",
-        title: "Sample T-Shirt",
-        handle: "sample-t-shirt",
-        status: "ACTIVE",
-        totalInventory: 100,
-        createdAt: new Date().toISOString(),
-        images: { nodes: [{ url: "https://via.placeholder.com/300", altText: "Sample" }] },
-        variants: { nodes: [{ price: "29.99" }] }
-      },
-      {
-        id: "2", 
-        title: "Sample Jeans",
-        handle: "sample-jeans",
-        status: "ACTIVE",
-        totalInventory: 50,
-        createdAt: new Date().toISOString(),
-        images: { nodes: [{ url: "https://via.placeholder.com/300", altText: "Sample" }] },
-        variants: { nodes: [{ price: "79.99" }] }
-      }
-    ];
+  // Always return mock data for development
+  const mockProducts = [
+    {
+      id: "1",
+      title: "Sample T-Shirt",
+      handle: "sample-t-shirt",
+      status: "ACTIVE",
+      totalInventory: 100,
+      createdAt: new Date().toISOString(),
+      images: { nodes: [{ url: "https://via.placeholder.com/300", altText: "Sample" }] },
+      variants: { nodes: [{ price: "29.99" }] }
+    },
+    {
+      id: "2", 
+      title: "Sample Jeans",
+      handle: "sample-jeans",
+      status: "ACTIVE",
+      totalInventory: 50,
+      createdAt: new Date().toISOString(),
+      images: { nodes: [{ url: "https://via.placeholder.com/300", altText: "Sample" }] },
+      variants: { nodes: [{ price: "79.99" }] }
+    }
+  ];
 
-    return json({ products: mockProducts });
-  }
-
-  // In production, fetch real products
-  try {
-    const { authenticate } = await import("../shopify.server");
-    const { admin } = await authenticate.admin(request);
-
-    const response = await admin.graphql(
-      `#graphql
-        query getProducts($first: Int!) {
-          products(first: $first) {
-            nodes {
-              id
-              title
-              handle
-              status
-              totalInventory
-              createdAt
-              images(first: 1) {
-                nodes {
-                  url
-                  altText
-                }
-              }
-              variants(first: 1) {
-                nodes {
-                  price
-                }
-              }
-            }
-          }
-        }`,
-      {
-        variables: {
-          first: 10,
-        },
-      }
-    );
-
-    const responseJson = await response.json();
-    const products = responseJson.data?.products?.nodes || [];
-
-    return json({ products });
-  } catch (error) {
-    // Fallback to mock data
-    return json({ products: [] });
-  }
+  return json({ products: mockProducts });
 };
 
 export default function Products() {

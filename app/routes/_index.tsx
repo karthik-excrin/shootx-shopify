@@ -15,26 +15,10 @@ import {
 import { TitleBar } from "@shopify/app-bridge-react";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  // For development, return mock data without authentication
-  if (process.env.NODE_ENV === "development") {
-    return json({
-      shop: "development-shop.myshopify.com",
-    });
-  }
-
-  // In production, use proper authentication
-  try {
-    const { authenticate } = await import("../shopify.server");
-    const { admin, session } = await authenticate.admin(request);
-    return json({
-      shop: session.shop,
-    });
-  } catch (error) {
-    // Fallback for development
-    return json({
-      shop: "development-shop.myshopify.com",
-    });
-  }
+  // Always return mock data for development
+  return json({
+    shop: "development-shop.myshopify.com",
+  });
 };
 
 export default function Index() {
